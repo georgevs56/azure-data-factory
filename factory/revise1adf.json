@@ -1,0 +1,9 @@
+{
+	"name": "revise1adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a2aad5ba-8b2f-4c69-8917-8ca040501459",
+		"tenantId": "6f2c2d9b-8a10-4e72-b1a9-f0be9b765e28"
+	}
+}
