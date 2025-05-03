@@ -1,5 +1,5 @@
 {
-	"name": "dest_bsd",
+	"name": "meta_src",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "revise_connect",
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Raw",
-				"fileSystem": "destination"
+				"folderPath": "csv",
+				"fileSystem": "source"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -19,6 +19,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

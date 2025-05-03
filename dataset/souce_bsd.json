@@ -5,12 +5,20 @@
 			"referenceName": "revise_connect",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"m_file": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sales_data_first (1).csv",
+				"fileName": {
+					"value": "@dataset().m_file",
+					"type": "Expression"
+				},
 				"folderPath": "csv",
 				"fileSystem": "source"
 			},
