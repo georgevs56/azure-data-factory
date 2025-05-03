@@ -1,12 +1,12 @@
 {
-	"name": "dest_bsd",
+	"name": "False_Sink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "revise_connect",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"d_File": {
+			"j_File": {
 				"type": "string"
 			}
 		},
@@ -16,11 +16,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().d_File",
+					"value": "@dataset().j_File",
 					"type": "Expression"
 				},
 				"folderPath": "Jaw",
-				"fileSystem": "destination"
+				"fileSystem": "report"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -28,6 +28,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

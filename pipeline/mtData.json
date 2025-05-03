@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -110,7 +111,13 @@
 							"outputs": [
 								{
 									"referenceName": "dest_bsd",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"d_File": {
+											"value": "@item().name\r\n",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

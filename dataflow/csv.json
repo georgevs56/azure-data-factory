@@ -1,0 +1,56 @@
+{
+	"name": "csv",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "data_flow_src",
+						"type": "DatasetReference"
+					},
+					"name": "sourcecsv"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "filter1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Pregnancies as string,",
+				"          Glucose as string,",
+				"          BloodPressure as string,",
+				"          SkinThickness as integer,",
+				"          Insulin as short,",
+				"          BMI as string,",
+				"          DiabetesPedigreeFunction as double,",
+				"          Age as short,",
+				"          Outcome as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcecsv",
+				"sourcecsv select(mapColumn(",
+				"          Pregnancies,",
+				"          {Glucose level} = Glucose,",
+				"          BloodPressure,",
+				"          SkinThickness,",
+				"          Insulin,",
+				"          BMI,",
+				"          DiabetesPedigreeFunction,",
+				"          Age,",
+				"          Outcome",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 filter(Age==50) ~> filter1"
+			]
+		}
+	}
+}
