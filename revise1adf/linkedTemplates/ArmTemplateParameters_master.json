@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "revise1adf"
+		},
+		"revise_connect_accountKey": {
+			"value": ""
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"revise_connect_properties_typeProperties_url": {
+			"value": "https://revisejilson12.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
