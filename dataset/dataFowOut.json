@@ -1,0 +1,23 @@
+{
+	"name": "dataFowOut",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "revise_connect",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "dataflow",
+				"fileSystem": "report"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dataFow",
+						"type": "DatasetReference"
+					},
+					"name": "SourceX"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Asasd1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "split1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          mpg as double,",
+				"          cylinders as short,",
+				"          displacement as double,",
+				"          horsepower as short,",
+				"          weight as short,",
+				"          acceleration as double,",
+				"          {model-year} as short",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     ignoreNoFilesFound: false) ~> SourceX",
+				"SourceX select(skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> select1",
+				"select1 split(cylinders==4,",
+				"     cylinders ==6,",
+				"     cylinders ==8,",
+				"     disjoint: false) ~> split1@(cylinders, cylinder2, cylinder3)",
+				"split1@cylinders sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
