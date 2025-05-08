@@ -1,0 +1,25 @@
+{
+	"name": "file_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "mtData",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2025-05-08T00:05:00",
+				"endTime": "2025-05-08T06:30:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
